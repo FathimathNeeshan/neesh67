@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Grid Layout</title>
+  <style>
+    /* Reset & base styling */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* Grid Container */
+    .dashboard-container {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: 60px 220px 60px;
+      gap: 16px;
+      width: 100%;
+      max-width: 700px;
+      padding: 24px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Assigning Grid Areas */
+    .header {
+      grid-area: header;
+      background-color: #0ea5e9;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      background-color: #6366f1;
+    }
+
+    .main {
+      grid-area: main;
+      background-color: #10b981;
+    }
+
+    .footer {
+      grid-area: footer;
+      background-color: #475569;
+    }
+
+    /* Shared styling for layout items */
+    .header, .sidebar, .main, .footer {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 600px) {
+      .dashboard-container {
+        grid-template-areas:
+          "header"
+          "sidebar"
+          "main"
+          "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 200px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <header class="header">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      Header
+    </header>
+    
+    <aside class="sidebar">
+      Sidebar
+    </aside>
+    
+    <main class="main">
+      Main Content
+    </main>
+    
+    <footer class="footer">
+      Footer
+    </footer>
+  </div>
+
+</body>
+</html>
